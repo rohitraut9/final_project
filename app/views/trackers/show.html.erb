@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Tracker #<%= @the_tracker.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trackers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_tracker/<%= @the_tracker.id %>">
+          Delete tracker
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Sets
+      </dt>
+      <dd>
+        <%= @the_tracker.sets %>
+      </dd>
+
+      <dt>
+        Reps
+      </dt>
+      <dd>
+        <%= @the_tracker.reps %>
+      </dd>
+
+      <dt>
+        Weight
+      </dt>
+      <dd>
+        <%= @the_tracker.weight %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_tracker.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tracker.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tracker.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit tracker
+    </h2>
+
+    <form action="/modify_tracker/<%= @the_tracker.id %>"  method="post" >
+      <div>
+        <label for="sets_box">
+          Sets
+        </label>
+
+        <input type="text" id="sets_box" name="query_sets" value="<%= @the_tracker.sets %>">
+      </div>
+
+      <div>
+        <label for="reps_box">
+          Reps
+        </label>
+
+        <input type="text" id="reps_box" name="query_reps" value="<%= @the_tracker.reps %>">
+      </div>
+
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" value="<%= @the_tracker.weight %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_tracker.user_id %>">
+      </div>
+
+      <button>
+        Update tracker
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

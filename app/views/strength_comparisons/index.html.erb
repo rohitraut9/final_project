@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all strength comparisons
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new strength comparison
+    </h2>
+
+    <form action="/insert_strength_comparison" method="post">
+      <div>
+        <label for="one_rep_max_box">
+          One rep max
+        </label>
+
+        <input type="text" id="one_rep_max_box" name="query_one_rep_max">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create strength comparison
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          One rep max
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_strength_comparisons.each do |a_strength_comparison| %>
+      <tr>
+        <td>
+          <%= a_strength_comparison.id %>
+        </td>
+
+        <td>
+          <%= a_strength_comparison.one_rep_max %>
+        </td>
+
+        <td>
+          <%= a_strength_comparison.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_strength_comparison.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_strength_comparison.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/strength_comparisons/<%= a_strength_comparison.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

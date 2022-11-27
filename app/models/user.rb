@@ -14,4 +14,9 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many(:trackers, { :class_name => "Tracker", :foreign_key => "user_id", :dependent => :destroy })
+
+  has_many(:strength_comparisons, { :class_name => "StrengthComparison", :foreign_key => "user_id", :dependent => :destroy })
+  
 end

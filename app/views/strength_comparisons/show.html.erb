@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Strength comparison #<%= @the_strength_comparison.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/strength_comparisons">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_strength_comparison/<%= @the_strength_comparison.id %>">
+          Delete strength comparison
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        One rep max
+      </dt>
+      <dd>
+        <%= @the_strength_comparison.one_rep_max %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_strength_comparison.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_strength_comparison.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_strength_comparison.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit strength comparison
+    </h2>
+
+    <form action="/modify_strength_comparison/<%= @the_strength_comparison.id %>"  method="post" >
+      <div>
+        <label for="one_rep_max_box">
+          One rep max
+        </label>
+
+        <input type="text" id="one_rep_max_box" name="query_one_rep_max" value="<%= @the_strength_comparison.one_rep_max %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_strength_comparison.user_id %>">
+      </div>
+
+      <button>
+        Update strength comparison
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

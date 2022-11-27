@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_24_023530) do
+ActiveRecord::Schema.define(version: 2022_11_27_212045) do
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "strength_comparisons", force: :cascade do |t|
+    t.integer "one_rep_max"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trackers", force: :cascade do |t|
+    t.integer "sets"
+    t.integer "reps"
+    t.integer "weight"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

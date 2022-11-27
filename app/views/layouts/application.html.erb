@@ -16,6 +16,18 @@
   </head>
 
   <body>
+    <ul>
+      <% if session.fetch(:user_id) == nil %>
+        <li><a href="/user_sign_in">Sign In</a></li>
+        <li><a href="/user_sign_up">Sign Up</a></li>
+      <% else %>
+        <li><a href="/user_sign_out">Sign Out</a></li>
+      <% end %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/progress">Strength Comparison</a></li>
+    </ul>
+    <p style="color :green"><%= notice %></p>
+    <p style="color :red"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,67 @@
 Rails.application.routes.draw do
 
+  # Routes for the Tracker resource:
+
+  # CREATE
+  post("/insert_tracker", { :controller => "trackers", :action => "create" })
+          
+  # READ
+  get("/trackers", { :controller => "trackers", :action => "index" })
+  
+  get("/trackers/:path_id", { :controller => "trackers", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_tracker/:path_id", { :controller => "trackers", :action => "update" })
+  
+  # DELETE
+  get("/delete_tracker/:path_id", { :controller => "trackers", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Strength comparison resource:
+
+  # CREATE
+  post("/insert_strength_comparison", { :controller => "strength_comparisons", :action => "create" })
+          
+  # READ
+  get("/strength_comparisons", { :controller => "strength_comparisons", :action => "index" })
+  
+  get("/strength_comparisons/:path_id", { :controller => "strength_comparisons", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_strength_comparison/:path_id", { :controller => "strength_comparisons", :action => "update" })
+  
+  # DELETE
+  get("/delete_strength_comparison/:path_id", { :controller => "strength_comparisons", :action => "destroy" })
+
+  # INDEX
+  get("/progress", { :controller => "strength_comparisons", :action => "evaluate_strength" })
+  #------------------------------
+
+  # Routes for the Exercise resource:
+
+  # CREATE
+  post("/insert_exercise", { :controller => "exercises", :action => "create" })
+          
+  # READ
+  get("/exercises", { :controller => "exercises", :action => "index" })
+  
+  get("/exercises/:path_id", { :controller => "exercises", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_exercise/:path_id", { :controller => "exercises", :action => "update" })
+  
+  # DELETE
+  get("/delete_exercise/:path_id", { :controller => "exercises", :action => "destroy" })
+
+  # Routes for excercise
+  get("/exercises", { :controller => "exercises", :action => "show" })
+
+  #------------------------------
+
   # Index
   get("/", { :controller => "application", :action => "index" }) 
 
