@@ -36,8 +36,6 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_strength_comparison/:path_id", { :controller => "strength_comparisons", :action => "destroy" })
 
-  # INDEX
-  get("/progress", { :controller => "strength_comparisons", :action => "evaluate_strength" })
   #------------------------------
 
   # Routes for the Exercise resource:

@@ -20,7 +20,7 @@ class StrengthComparisonsController < ApplicationController
   def create
     the_strength_comparison = StrengthComparison.new
     the_strength_comparison.one_rep_max = params.fetch("query_one_rep_max")
-    the_strength_comparison.user_id = params.fetch("query_user_id")
+    the_strength_comparison.user_id = session.fetch(:user_id)
 
     if the_strength_comparison.valid?
       the_strength_comparison.save
@@ -54,7 +54,4 @@ class StrengthComparisonsController < ApplicationController
     redirect_to("/strength_comparisons", { :notice => "Strength comparison deleted successfully."} )
   end
 
-  def evaluate_strength
-    render({ :template => "progress/comparison.html.erb"})
-  end
 end
