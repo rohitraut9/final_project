@@ -20,9 +20,9 @@
           Exercise
         </label>
 
-        <select name="query_exercise">
+        <select name="query_exercise_id">
         <% Exercise.all.each do |an_exercise| %>
-          <option>
+          <option value="<%= an_exercise.id %>">
             <%= an_exercise.name %>
           </option>
         <% end %>
@@ -71,9 +71,12 @@
 
         <th>
         </th>
+
+        <th>
+        </th>
       </tr>
 
-      <% user_comparison = StrengthComparison.all.where({ :user_id => session.fetch("user_id") }) %>
+      <% user_comparison = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
       <% user_comparison.each do |a_strength_comparison| %>
       <tr>
         <td>
@@ -99,6 +102,10 @@
           <a href="/strength_comparisons/<%= a_strength_comparison.id %>">
             Show details
           </a>
+        </td>
+
+        <td>
+          <%= a_strength_comparison.exercise.name %>
         </td>
       </tr>
       <% end %>

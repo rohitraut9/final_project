@@ -9,4 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Exercise < ApplicationRecord
+
+  validates :name, :uniqueness => { :case_sensitive => false }
+  validates :name, :presence => true
+
 end
