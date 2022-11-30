@@ -40,7 +40,7 @@ class TrackersController < ApplicationController
     the_tracker.sets = params.fetch("query_sets")
     the_tracker.reps = params.fetch("query_reps")
     the_tracker.weight = params.fetch("query_weight")
-    the_tracker.user_id = params.fetch("query_user_id")
+    the_tracker.user_id = session.fetch(:user_id)
 
     if the_tracker.valid?
       the_tracker.save

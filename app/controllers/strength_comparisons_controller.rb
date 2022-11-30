@@ -36,7 +36,7 @@ class StrengthComparisonsController < ApplicationController
     the_strength_comparison = StrengthComparison.where({ :id => the_id }).at(0)
 
     the_strength_comparison.one_rep_max = params.fetch("query_one_rep_max")
-    the_strength_comparison.user_id = params.fetch("query_user_id")
+    the_strength_comparison.user_id = session.fetch(:user_id)
 
     if the_strength_comparison.valid?
       the_strength_comparison.save

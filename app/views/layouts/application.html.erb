@@ -17,16 +17,16 @@
 
   <body>
     <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/exercises">Exercises</a></li>
       <% if session.fetch(:user_id) == nil %>
         <li><a href="/user_sign_in">Sign In</a></li>
         <li><a href="/user_sign_up">Sign Up</a></li>
       <% else %>
         <li><a href="/user_sign_out">Sign Out</a></li>
+        <li><a href="/strength_comparisons">Strength Comparison</a></li>
+        <li><a href="/trackers">Trackers</a></li>
       <% end %>
-      <li><a href="/">Home</a></li>
-      <li><a href="/strength_comparisons">Strength Comparison</a></li>
-      <li><a href="/trackers">Trackers</a></li>
-      <li><a href="/exercises">Exercises</a></li>
     </ul>
     <p style="color :green"><%= notice %></p>
     <p style="color :red"><%= alert %></p>

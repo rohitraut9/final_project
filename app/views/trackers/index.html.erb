@@ -70,6 +70,14 @@
         </th>
 
         <th>
+          Category
+        </th>
+
+        <th>
+          Exercise
+        </th>
+
+        <th>
           Sets
         </th>
 
@@ -79,10 +87,6 @@
 
         <th>
           Weight
-        </th>
-
-        <th>
-          User
         </th>
 
         <th>
@@ -96,14 +100,21 @@
         <th>
         </th>
 
-        <th>
-        </th>
       </tr>
 
-      <% @list_of_trackers.each do |a_tracker| %>
+      <% user_tracker = Tracker.all.where({ :user_id => session.fetch(:user_id) }) %>
+      <% user_tracker.each do |a_tracker| %>
       <tr>
         <td>
           <%= a_tracker.id %>
+        </td>
+
+        <td>
+          <%= a_tracker.exercise.category %>
+        </td>
+
+        <td>
+          <%= a_tracker.exercise.name %>
         </td>
 
         <td>
@@ -119,12 +130,9 @@
         </td>
 
         <td>
-          <%= a_tracker.user_id %>
-        </td>
-
-        <td>
           <%= time_ago_in_words(a_tracker.created_at) %> ago
         </td>
+        
         <td>
           <%= time_ago_in_words(a_tracker.updated_at) %> ago
         </td>
@@ -135,9 +143,6 @@
           </a>
         </td>
 
-        <td>
-          <%= a_tracker.exercise.name %>
-        </td>
       </tr>
       <% end %>
     </table>
