@@ -10,7 +10,7 @@
 #  user_id     :integer
 #
 class StrengthComparison < ApplicationRecord
-  validates :exercise_id, :uniqueness => { :case_sensitive => false }
+  validates :exercise_id, :presence => true
 
   belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
   belongs_to(:exercise, { :class_name => "Exercise", :foreign_key => "exercise_id" })

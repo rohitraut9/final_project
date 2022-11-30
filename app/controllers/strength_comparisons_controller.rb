@@ -31,6 +31,20 @@ class StrengthComparisonsController < ApplicationController
     end
   end
 
+  def create_ending
+    the_strength_comparison = StrengthComparison.new
+    the_strength_comparison.one_rep_max = params.fetch("query_one_rep_max")
+    the_strength_comparison.user_id = session.fetch(:user_id)
+    the_strength_comparison.exercise_id = params.fetch("query_exercise_id")
+
+    if the_strength_comparison.valid?
+      the_strength_comparison.save
+      redirect_to("/strength_comparisons", { :notice => "Strength comparison created successfully." })
+    else
+      redirect_to("/strength_comparisons", { :alert => the_strength_comparison.errors.full_messages.to_sentence })
+    end
+  end
+
   def update
     the_id = params.fetch("path_id")
     the_strength_comparison = StrengthComparison.where({ :id => the_id }).at(0)

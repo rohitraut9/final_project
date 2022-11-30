@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_strength_comparison", { :controller => "strength_comparisons", :action => "create" })
+  post("/insert_ending_strength_comparison", { :controller => "strength_comparisons", :action => "create_ending" })
           
   # READ
   get("/strength_comparisons", { :controller => "strength_comparisons", :action => "index" })
