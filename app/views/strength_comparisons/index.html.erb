@@ -118,8 +118,13 @@
 
 <hr>
 
-<%#= excercises_in_sc = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
-
+<%= excercises_in_sc = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
+<%= excercises_in_sc.count %>
+<% counter = excercises_in_sc.count - 1 %>
+<% while counter >= 0 %>
+  <%= excercises_in_sc.at(counter).exercise.name %>
+  <% counter = counter -1 %>
+<% end %>
 <div>
   <div>
     <h2>

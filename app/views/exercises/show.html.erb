@@ -65,7 +65,11 @@
           Category
         </label>
 
-        <input type="text" id="category_box" name="query_category" value="<%= @the_exercise.category %>">
+        <select name="query_category" value="<%= @the_exercise.category %>">
+          <option>Push</option>
+          <option>Pull</option>
+          <option>Legs</option>
+        </select>
       </div>
 
       <div>
