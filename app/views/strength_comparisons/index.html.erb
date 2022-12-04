@@ -8,6 +8,7 @@
 
 <hr>
 
+<!-- Starting Strength -->
 <div>
   <div>
     <h2>
@@ -45,6 +46,8 @@
 </div>
 
 <hr>
+
+<!-- Starting Strength Table -->
 <div>
   <div>
     <table border="1">
@@ -78,8 +81,10 @@
 
       </tr>
 
-      <% user_comparison = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
-      <% user_comparison.each do |a_strength_comparison| %>
+      <% excercises_in_sc = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
+      <% unique_exercises = excercises_in_sc.uniq{|x| x.exercise_id}%>
+      <% unique_exercises.each do |the_exercise|%>
+        <% a_strength_comparison = excercises_in_sc.where({:exercise_id => the_exercise.exercise_id}).order({:created_at => :asc}).first %>
       <tr>
         <td>
           <%= a_strength_comparison.id %>
@@ -125,6 +130,17 @@
   <%= excercises_in_sc.at(counter).exercise.name %>
   <% counter = counter -1 %>
 <% end %>
+<%= unique_exercises = excercises_in_sc.uniq{|x| x.exercise_id}%>
+<% unique_exercises.each do |the_exercise|%>
+  <% earliest_entry = excercises_in_sc.where({:exercise_id => the_exercise.exercise_id}).order({:created_at => :desc}).first %>
+  <div>
+    <%= earliest_entry.exercise.name %>
+    <%= earliest_entry.created_at %>
+    <%= earliest_entry.one_rep_max %>
+  </div>
+<% end %>
+
+<!-- Ending Strength -->
 <div>
   <div>
     <h2>
@@ -163,6 +179,7 @@
 
 <hr>
 
+<!-- Ending Strength Table -->
 <div>
   <div>
     <table border="1">
@@ -196,8 +213,10 @@
 
       </tr>
 
-      <% user_comparison = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
-      <% user_comparison.each do |a_strength_comparison| %>
+      <% excercises_in_sc = StrengthComparison.all.where({ :user_id => session.fetch(:user_id) }) %>
+      <% unique_exercises = excercises_in_sc.uniq{|x| x.exercise_id}%>
+      <% unique_exercises.each do |the_exercise|%>
+        <% a_strength_comparison = excercises_in_sc.where({:exercise_id => the_exercise.exercise_id}).order({:created_at => :desc}).first %>
       <tr>
         <td>
           <%= a_strength_comparison.id %>

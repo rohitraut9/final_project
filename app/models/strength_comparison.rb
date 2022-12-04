@@ -14,4 +14,6 @@ class StrengthComparison < ApplicationRecord
 
   belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
   belongs_to(:exercise, { :class_name => "Exercise", :foreign_key => "exercise_id" })
+
+
 end
