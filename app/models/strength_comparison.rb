@@ -10,7 +10,8 @@
 #  user_id     :integer
 #
 class StrengthComparison < ApplicationRecord
-  validates :exercise_id, :presence => true
+  validates :one_rep_max, :presence => true
+  validates :one_rep_max, numericality: { only_integer: true }  
 
   belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
   belongs_to(:exercise, { :class_name => "Exercise", :foreign_key => "exercise_id" })

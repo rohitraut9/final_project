@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      <%= @current_user.first_name %>'s Daily Trackers
+      <%= @current_user.first_name.capitalize %>'s Daily Trackers
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new tracker
+      Add Workout Log -- <%= Date.today.strftime("%d %B, %Y") %>
     </h2>
 
     <form action="/insert_tracker" method="post">
@@ -27,35 +27,29 @@
           </option>
         <% end %>
         </select>
-      </div>
 
-      <div>
         <label for="sets_box">
           Sets
         </label>
 
         <input type="text" id="sets_box" name="query_sets">
-      </div>
 
-      <div>
         <label for="reps_box">
           Reps
         </label>
 
         <input type="text" id="reps_box" name="query_reps">
-      </div>
 
-      <div>
         <label for="weight_box">
           Weight
         </label>
 
         <input type="text" id="weight_box" name="query_weight">
-      </div>
 
-      <button>
-        Create tracker
-      </button>
+        <button>
+          Create Tracker
+        </button>
+      </div>
     </form>
   </div>
 </div>
@@ -65,10 +59,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
-
         <th>
           Category
         </th>
@@ -90,11 +80,11 @@
         </th>
 
         <th>
-          Created at
+          Created on
         </th>
 
         <th>
-          Updated at
+          Updated on
         </th>
 
         <th>
@@ -105,10 +95,6 @@
       <% user_tracker = Tracker.all.where({ :user_id => session.fetch(:user_id) }).order({ :created_at => :desc }) %>
       <% user_tracker.each do |a_tracker| %>
       <tr>
-        <td>
-          <%= a_tracker.id %>
-        </td>
-
         <td>
           <%= a_tracker.exercise.category %>
         </td>
@@ -130,16 +116,16 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_tracker.created_at) %> ago
+          <%= a_tracker.created_at.strftime("%d %b %Y") %>
         </td>
         
         <td>
-          <%= time_ago_in_words(a_tracker.updated_at) %> ago
+          <%= a_tracker.updated_at.strftime("%d %b %Y") %>
         </td>
 
         <td>
           <a href="/trackers/<%= a_tracker.id %>">
-            Show details
+            Edit details
           </a>
         </td>
 
