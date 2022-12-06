@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_28_040451) do
+ActiveRecord::Schema.define(version: 2022_12_06_210609) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "category"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
+    t.string "primary_type"
+    t.string "image"
   end
 
   create_table "strength_comparisons", force: :cascade do |t|

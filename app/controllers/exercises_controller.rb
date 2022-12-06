@@ -21,6 +21,9 @@ class ExercisesController < ApplicationController
     the_exercise = Exercise.new
     the_exercise.category = params.fetch("query_category")
     the_exercise.name = params.fetch("query_name")
+    the_exercise.description = params.fetch("query_description")
+    the_exercise.primary_type = params.fetch("query_primary_type")
+    the_exercise.image = params.fetch("query_image")
 
     if the_exercise.valid?
       the_exercise.save
@@ -36,6 +39,9 @@ class ExercisesController < ApplicationController
 
     the_exercise.category = params.fetch("query_category")
     the_exercise.name = params.fetch("query_name")
+    the_exercise.description = params.fetch("query_description")
+    the_exercise.primary_type = params.fetch("query_primary_type")
+    the_exercise.image = params.fetch("query_image")
 
     if the_exercise.valid?
       the_exercise.save

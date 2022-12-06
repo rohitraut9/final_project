@@ -1,14 +1,12 @@
 <div>
   <div>
     <h1>
-      List of all exercises
+      List of all Exercises
     </h1>
   </div>
 </div>
 
 <hr>
-
-# Workout description, gif
 
 <div>
   <div>
@@ -27,19 +25,35 @@
           <option>Pull</option>
           <option>Legs</option>
         </select>
-      </div>
 
-      <div>
         <label for="name_box">
           Name
         </label>
 
         <input type="text" id="name_box" name="query_name">
-      </div>
 
-      <button>
-        Create exercise
-      </button>
+        <label for="primary_type_box">
+          Primary Muscle Type
+        </label>
+
+        <input type="text" id="primary_type_box" name="query_primary_type">
+
+        <label for="image_box">
+          GIF
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea type="text" id="description_box" name="query_description" rows="3"></textarea>
+
+        <button>
+          Create Exercise
+        </button>
+      </div>
     </form>
   </div>
 </div>
@@ -50,10 +64,6 @@
     <table border="1">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Category
         </th>
 
@@ -62,11 +72,23 @@
         </th>
 
         <th>
-          Created at
+          Primary Muscle Type
         </th>
 
         <th>
-          Updated at
+          GIF
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Created on
+        </th>
+
+        <th>
+          Updated on
         </th>
 
         <th>
@@ -76,10 +98,6 @@
       <% @list_of_exercises.each do |an_exercise| %>
       <tr>
         <td>
-          <%= an_exercise.id %>
-        </td>
-
-        <td>
           <%= an_exercise.category %>
         </td>
 
@@ -88,10 +106,23 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(an_exercise.created_at) %> ago
+          <%= an_exercise.primary_type %>
         </td>
+
         <td>
-          <%= time_ago_in_words(an_exercise.updated_at) %> ago
+          <img src="<%= an_exercise.image %>" width="200px" height="200px">
+        </td>
+
+        <td>
+          <%= an_exercise.description %>
+        </td>
+
+        <td>
+          <%= an_exercise.created_at.strftime("%d %b %Y") %>
+        </td>
+        
+        <td>
+          <%= an_exercise.updated_at.strftime("%d %b %Y") %>
         </td>
 
         <td>
