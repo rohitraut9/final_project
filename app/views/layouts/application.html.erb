@@ -13,24 +13,30 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
   <body>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/exercises">Exercises</a></li>
-      <% if session.fetch(:user_id) == nil %>
-        <li><a href="/user_sign_in">Sign In</a></li>
-        <li><a href="/user_sign_up">Sign Up</a></li>
-      <% else %>
-        <li><a href="/user_sign_out">Sign Out</a></li>
-        <li><a href="/strength_comparisons">Strength Comparison</a></li>
-        <li><a href="/trackers">Trackers</a></li>
-      <% end %>
-    </ul>
-    <p style="color :green"><%= notice %></p>
-    <p style="color :red"><%= alert %></p>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="navbar-brand" href="#">My Fitness Tracker</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/exercises">Exercises</a></li>
+          <% if session.fetch(:user_id) == nil %>
+            <li class="nav-item"><a class="nav-link active" href="/user_sign_in">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/user_sign_up">Sign Up</a></li>
+          <% else %>
+            <li class="nav-item"><a class="nav-link active" href="/user_sign_out">Sign Out</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/strength_comparisons">Strength Comparison</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/trackers">Trackers</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <p class="text-success"><%= notice %></p>
+    <p class="text-danger"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
