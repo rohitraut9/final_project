@@ -8,60 +8,65 @@
 
 <hr>
 
-<div>
+<% if session.fetch(:user_id) == nil %>
+  <a href="/user_sign_in">Sign In</a> / <a href="/user_sign_up">Sign Up</a> to add exercises.
+<% else %>
   <div>
-    <h2>
-      Add a new exercise
-    </h2>
+    <div>
+      <h2>
+        Add a new exercise
+      </h2>
 
-    <form action="/insert_exercise" method="post">
-      <div>
-        <label for="category_box">
-          Category
-        </label>
+      <form action="/insert_exercise" method="post">
+        <div>
+          <label for="category_box">
+            Category:
+          </label>
 
-        <select name="query_category">
-          <option>Push</option>
-          <option>Pull</option>
-          <option>Legs</option>
-        </select>
+          <select name="query_category">
+            <option>Push</option>
+            <option>Pull</option>
+            <option>Legs</option>
+          </select>
 
-        <label for="name_box">
-          Name
-        </label>
+          <label for="name_box">
+            Name:
+          </label>
 
-        <input type="text" id="name_box" name="query_name">
+          <input type="text" id="name_box" name="query_name">
 
-        <label for="primary_type_box">
-          Primary Muscle Type
-        </label>
+          <label for="primary_type_box">
+            Primary Muscle Type:
+          </label>
 
-        <input type="text" id="primary_type_box" name="query_primary_type">
+          <input type="text" id="primary_type_box" name="query_primary_type">
 
-        <label for="image_box">
-          GIF
-        </label>
+          <label for="image_box">
+            GIF:
+          </label>
 
-        <input type="text" id="image_box" name="query_image">
+          <input type="text" id="image_box" name="query_image">
 
-        <label for="description_box">
-          Description
-        </label>
+          <label for="description_box">
+            Description:
+          </label>
 
-        <textarea type="text" id="description_box" name="query_description" rows="3"></textarea>
+          <textarea type="text" id="description_box" name="query_description" rows="3"></textarea>
 
-        <button>
-          Create Exercise
-        </button>
-      </div>
-    </form>
+          <button>
+            Create Exercise
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+<% end %>
 
 <hr>
+
 <div>
   <div>
-    <table border="1">
+    <table class="table align-middle">
       <tr>
         <th>
           Category

@@ -73,7 +73,6 @@
 
 <hr>
 
-
 <div>
   <div>
     <h2>
@@ -83,19 +82,29 @@
     <form action="/modify_exercise/<%= @the_exercise.id %>"  method="post" >
       <div>
         <label for="category_box">
-          Category
+          Category:
         </label>
 
         <select name="query_category" value="<%= @the_exercise.category %>">
-          <option>Push</option>
-          <option>Pull</option>
-          <option>Legs</option>
+          <% if @the_exercise.category == "Push" %>
+            <option selected>Push</option>
+            <option>Pull</option>
+            <option>Legs</option>
+          <% elsif @the_exercise.category == "Pull" %>
+            <option>Push</option>
+            <option selected>Pull</option>
+            <option>Legs</option>
+          <% else @the_exercise.category == "Legs" %>
+            <option>Push</option>
+            <option>Pull</option>
+            <option selected>Legs</option>
+          <% end %>
         </select>
       </div>
 
       <div>
         <label for="name_box">
-          Name
+          Name:
         </label>
 
         <input type="text" id="name_box" name="query_name" value="<%= @the_exercise.name %>">
@@ -103,7 +112,7 @@
 
       <div>
         <label for="primary_type_box">
-          Primary Muscle Type
+          Primary Muscle Type:
         </label>
 
         <input type="text" id="primary_type_box" name="query_primary_type" value="<%= @the_exercise.primary_type %>">
@@ -111,7 +120,7 @@
 
       <div>
         <label for="image_box">
-          GIF
+          GIF:
         </label>
 
         <input type="text" id="image_box" name="query_image" value="<%= @the_exercise.image %>">
@@ -119,14 +128,14 @@
 
       <div>
         <label for="description_box">
-          Description
+          Description:
         </label>
 
         <textarea type="text" id="description_box" name="query_description" rows="3"><%= @the_exercise.description %></textarea>
       </div>
 
       <button>
-        Update exercise
+        Update Exercise
       </button>
     </form>
   </div>

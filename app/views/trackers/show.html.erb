@@ -70,13 +70,27 @@
 <div>
   <div>
     <h2>
-      Edit tracker
+      Edit Tracker
     </h2>
 
     <form action="/modify_tracker/<%= @the_tracker.id %>"  method="post" >
       <div>
+        <label for="exercise_id_box">
+          Exercise:
+        </label>
+
+        <select name="query_exercise_id">
+        <% Exercise.all.each do |an_exercise| %>
+          <option value="<%= an_exercise.id %>">
+            <%= an_exercise.name %>
+          </option>
+        <% end %>
+        </select>
+      </div>
+
+      <div>
         <label for="sets_box">
-          Sets
+          Sets:
         </label>
 
         <input type="text" id="sets_box" name="query_sets" value="<%= @the_tracker.sets %>">
@@ -84,7 +98,7 @@
 
       <div>
         <label for="reps_box">
-          Reps
+          Reps:
         </label>
 
         <input type="text" id="reps_box" name="query_reps" value="<%= @the_tracker.reps %>">
@@ -92,14 +106,14 @@
 
       <div>
         <label for="weight_box">
-          Weight
+          Weight:
         </label>
 
         <input type="text" id="weight_box" name="query_weight" value="<%= @the_tracker.weight %>">
       </div>
 
       <button>
-        Update tracker
+        Update Tracker
       </button>
     </form>
   </div>
