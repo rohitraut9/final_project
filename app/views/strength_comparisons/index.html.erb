@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="alert alert-secondary col-md-12" role="alert">
       <%= @current_user.first_name.capitalize %>'s Progress
     </h1>
   </div>
@@ -11,7 +11,7 @@
 <!-- Starting Strength -->
 <div>
   <div>
-    <h2>
+    <h2 class="alert alert-secondary col-md-12" role="alert">
       Enter your Strength -- <%= Date.today.strftime("%d %B, %Y") %>
     </h2>
 
@@ -35,7 +35,7 @@
 
         <input type="text" id="one_rep_max_box" name="query_one_rep_max">
 
-        <button>
+        <button class="btn btn-dark">
           Create Strength Comparison
         </button>
       </div>
@@ -44,7 +44,7 @@
 </div>
 
 <hr>
-<h2> Beginning Strength </h2>
+<h2 class="alert alert-secondary col-md-12" role="alert"> Beginning Strength </h2>
 <hr>
 <!-- Starting Strength Table -->
 <div>
@@ -106,7 +106,7 @@
 </div>
 
 <hr>
-<h2> Ending Strength </h2>
+<h2 class="alert alert-secondary col-md-12" role="alert"> Ending Strength </h2>
 <hr>
 
 <!-- Ending Strength Table -->

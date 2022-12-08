@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="alert alert-secondary col-md-12" role="alert">
       Strength comparison #<%= @the_strength_comparison.id %> details
     </h1>
 
@@ -18,33 +18,33 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
+    <dl class="row">
+      <dt class="col-sm-3">
         Exercise
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_strength_comparison.exercise.name %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         One rep max
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_strength_comparison.one_rep_max %>
       </dd>
 
-      <dt>
-        Created at
+      <dt class="col-sm-3">
+        Created on
       </dt>
-      <dd>
-        <%= time_ago_in_words(@the_strength_comparison.created_at) %> ago
+      <dd class="col-sm-9">
+        <%= @the_strength_comparison.created_at.strftime("%d %B %Y") %>
       </dd>
 
-      <dt>
-        Updated at
+      <dt class="col-sm-3">
+        Updated on
       </dt>
-      <dd>
-        <%= time_ago_in_words(@the_strength_comparison.updated_at) %> ago
+      <dd class="col-sm-9">
+        <%= @the_strength_comparison.updated_at.strftime("%d %B %Y") %>
       </dd>
     </dl>
   </div>
@@ -55,7 +55,7 @@
 
 <div>
   <div>
-    <h2>
+    <h2 class="alert alert-secondary col-md-12" role="alert">
       Edit strength comparison
     </h2>
 
@@ -82,7 +82,7 @@
         <input type="text" id="one_rep_max_box" name="query_one_rep_max" value="<%= @the_strength_comparison.one_rep_max %>">
       </div>
 
-      <button>
+      <button class="btn btn-dark">
         Update Strength Comparison
       </button>
     </form>

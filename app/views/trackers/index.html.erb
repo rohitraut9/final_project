@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="alert alert-secondary col-md-12" role="alert">
       <%= @current_user.first_name.capitalize %>'s Daily Trackers
     </h1>
   </div>
@@ -10,7 +10,7 @@
 
 <div>
   <div>
-    <h2>
+    <h2 class="alert alert-secondary col-md-12" role="alert">
       Add Workout Log -- <%= Date.today.strftime("%d %B, %Y") %>
     </h2>
 
@@ -46,7 +46,7 @@
 
         <input type="text" id="weight_box" name="query_weight">
 
-        <button>
+        <button class="btn btn-dark">
           Create Tracker
         </button>
       </div>

@@ -1,6 +1,6 @@
 <div>
   <div>
-    <h1>
+    <h1 class="alert alert-secondary col-md-12" role="alert">
       Exercise #<%= @the_exercise.id %> details
     </h1>
 
@@ -18,53 +18,53 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
+    <dl class="row">
+      <dt class="col-sm-3">
         Category
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.category %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         Name
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.name %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         Primary Muscle Type
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.primary_type %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         GIF
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <img src="<%= @the_exercise.image %>">
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         Description
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.description %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         Created on
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.created_at.strftime("%d %b %Y") %>
       </dd>
 
-      <dt>
+      <dt class="col-sm-3">
         Updated on
       </dt>
-      <dd>
+      <dd class="col-sm-9">
         <%= @the_exercise.updated_at.strftime("%d %b %Y") %>
       </dd>
     </dl>
@@ -75,7 +75,7 @@
 
 <div>
   <div>
-    <h2>
+    <h2 class="alert alert-secondary col-md-12" role="alert">
       Edit Exercise
     </h2>
 
@@ -134,7 +134,7 @@
         <textarea type="text" id="description_box" name="query_description" rows="3"><%= @the_exercise.description %></textarea>
       </div>
 
-      <button>
+      <button class="btn btn-dark">
         Update Exercise
       </button>
     </form>
