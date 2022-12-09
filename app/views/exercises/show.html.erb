@@ -73,72 +73,76 @@
 
 <hr>
 
-<div>
+<% if session.fetch(:user_id) == nil %>
+  <a href="/user_sign_in">Sign In</a> / <a href="/user_sign_up">Sign Up</a> to edit exercises.
+<% else %>
   <div>
-    <h2 class="alert alert-secondary col-md-12" role="alert">
-      Edit Exercise
-    </h2>
+    <div>
+      <h2 class="alert alert-secondary col-md-12" role="alert">
+        Edit Exercise
+      </h2>
 
-    <form action="/modify_exercise/<%= @the_exercise.id %>"  method="post" >
-      <div>
-        <label for="category_box">
-          Category:
-        </label>
+      <form action="/modify_exercise/<%= @the_exercise.id %>"  method="post" >
+        <div>
+          <label for="category_box">
+            Category:
+          </label>
 
-        <select name="query_category" value="<%= @the_exercise.category %>">
-          <% if @the_exercise.category == "Push" %>
-            <option selected>Push</option>
-            <option>Pull</option>
-            <option>Legs</option>
-          <% elsif @the_exercise.category == "Pull" %>
-            <option>Push</option>
-            <option selected>Pull</option>
-            <option>Legs</option>
-          <% else @the_exercise.category == "Legs" %>
-            <option>Push</option>
-            <option>Pull</option>
-            <option selected>Legs</option>
-          <% end %>
-        </select>
-      </div>
+          <select name="query_category" value="<%= @the_exercise.category %>">
+            <% if @the_exercise.category == "Push" %>
+              <option selected>Push</option>
+              <option>Pull</option>
+              <option>Legs</option>
+            <% elsif @the_exercise.category == "Pull" %>
+              <option>Push</option>
+              <option selected>Pull</option>
+              <option>Legs</option>
+            <% else @the_exercise.category == "Legs" %>
+              <option>Push</option>
+              <option>Pull</option>
+              <option selected>Legs</option>
+            <% end %>
+          </select>
+        </div>
 
-      <div>
-        <label for="name_box">
-          Name:
-        </label>
+        <div>
+          <label for="name_box">
+            Name:
+          </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_exercise.name %>">
-      </div>
+          <input type="text" id="name_box" name="query_name" value="<%= @the_exercise.name %>">
+        </div>
 
-      <div>
-        <label for="primary_type_box">
-          Primary Muscle Type:
-        </label>
+        <div>
+          <label for="primary_type_box">
+            Primary Muscle Type:
+          </label>
 
-        <input type="text" id="primary_type_box" name="query_primary_type" value="<%= @the_exercise.primary_type %>">
-      </div>
+          <input type="text" id="primary_type_box" name="query_primary_type" value="<%= @the_exercise.primary_type %>">
+        </div>
 
-      <div>
-        <label for="image_box">
-          GIF:
-        </label>
+        <div>
+          <label for="image_box">
+            GIF:
+          </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_exercise.image %>">
-      </div>
+          <input type="text" id="image_box" name="query_image" value="<%= @the_exercise.image %>">
+        </div>
 
-      <div>
-        <label for="description_box">
-          Description:
-        </label>
+        <div>
+          <label for="description_box">
+            Description:
+          </label>
 
-        <textarea type="text" id="description_box" name="query_description" rows="3"><%= @the_exercise.description %></textarea>
-      </div>
+          <textarea type="text" id="description_box" name="query_description" rows="3"><%= @the_exercise.description %></textarea>
+        </div>
 
-      <button class="btn btn-dark">
-        Update Exercise
-      </button>
-    </form>
+        <button class="btn btn-dark">
+          Update Exercise
+        </button>
+      </form>
+    </div>
   </div>
-</div>
+<% end %>
 
 <hr>
