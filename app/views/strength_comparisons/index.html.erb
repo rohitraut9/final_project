@@ -16,28 +16,32 @@
     </h2>
 
     <form action="/insert_strength_comparison" method="post">
-      <div>
-        <label for="exercise_box">
-          Exercise:
-        </label>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="exercise_box">
+            Exercise:
+          </label>
 
-        <select name="query_exercise_id">
-        <% Exercise.all.each do |an_exercise| %>
-          <option value="<%= an_exercise.id %>">
-            <%= an_exercise.name %>
-          </option>
-        <% end %>
-        </select>
+          <select name="query_exercise_id">
+          <% Exercise.all.each do |an_exercise| %>
+            <option value="<%= an_exercise.id %>">
+              <%= an_exercise.name %>
+            </option>
+          <% end %>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label for="one_rep_max_box">
+            One Rep Max:
+          </label>
 
-        <label for="one_rep_max_box">
-          One Rep Max:
-        </label>
-
-        <input type="text" id="one_rep_max_box" name="query_one_rep_max">
-
-        <button class="btn btn-dark">
-          Create Strength Comparison
-        </button>
+          <input type="text" id="one_rep_max_box" name="query_one_rep_max">
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-dark">
+            Create Strength Comparison
+          </button>
+        </div>
       </div>
     </form>
   </div>

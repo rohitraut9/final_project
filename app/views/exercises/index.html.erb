@@ -18,44 +18,51 @@
       </h2>
 
       <form action="/insert_exercise" method="post">
-        <div>
-          <label for="category_box">
-            Category:
-          </label>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label class="col-form-label" for="category_box">
+              Category:
+            </label>
 
-          <select name="query_category">
-            <option>Push</option>
-            <option>Pull</option>
-            <option>Legs</option>
-          </select>
+            <select name="query_category">
+              <option>Push</option>
+              <option>Pull</option>
+              <option>Legs</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <label for="name_box">
+              Name:
+            </label>
 
-          <label for="name_box">
-            Name:
-          </label>
+            <input type="text" id="name_box" name="query_name">
+          </div>
+          <div class="col-auto">
+            <label for="primary_type_box">
+              Primary Muscle Type:
+            </label>
 
-          <input type="text" id="name_box" name="query_name">
+            <input type="text" id="primary_type_box" name="query_primary_type">
+          </div>
+          <div class="col-auto">
+            <label for="image_box">
+              GIF:
+            </label>
 
-          <label for="primary_type_box">
-            Primary Muscle Type:
-          </label>
+            <input type="text" id="image_box" name="query_image">
+          </div>
+          <div class="col-auto">
+            <label for="description_box">
+              Description:
+            </label>
 
-          <input type="text" id="primary_type_box" name="query_primary_type">
-
-          <label for="image_box">
-            GIF:
-          </label>
-
-          <input type="text" id="image_box" name="query_image">
-
-          <label for="description_box">
-            Description:
-          </label>
-
-          <textarea type="text" id="description_box" name="query_description" rows="3"></textarea>
-
-          <button class="btn btn-dark">
-            Create Exercise
-          </button>
+            <textarea type="text" id="description_box" name="query_description" rows="3"></textarea>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-dark">
+              Create Exercise
+            </button>
+          </div>
         </div>
       </form>
     </div>
